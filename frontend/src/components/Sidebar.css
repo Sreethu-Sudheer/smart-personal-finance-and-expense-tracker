@@ -1,0 +1,231 @@
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #3a065c;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 25px 15px;
+    z-index: 1000;
+}
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #e8ecf0;
+    font-size: 22px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.sidebar-link:hover {
+    background: #eef0f3;
+    color: black;
+    max-width: 230px;
+}
+/* Active menu item */
+.sidebar-link.active {
+    background: #eef0f3;
+    color: #3a065c;
+    font-weight: 600;
+    max-width: 230px;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Active hover */
+.sidebar-link.active:hover {
+    background: #eef0f3;
+    color: #3a065c;
+}
+
+.app {
+    margin-left: 250px;
+    max-width: none;
+    padding: 30px;
+}
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    font-size: 22px;
+    padding: 8px 12px;
+    
+}
+.sidebar-overlay {
+    display: none;
+}
+
+
+.logout-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.logout-modal {
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.25s ease;
+}
+
+.logout-modal-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #ffe5e5;
+    color: #dc3545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.logout-modal h2 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.logout-modal p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.logout-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.logout-cancel-btn,
+.logout-confirm-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-cancel-btn {
+    background: #e9ecef;
+    color: #333;
+}
+
+.logout-cancel-btn:hover {
+    background: #d6d8db;
+}
+
+.logout-confirm-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.logout-confirm-btn:hover {
+    background: #bb2d3b;
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    min-width: 22px;
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .logout-modal {
+        padding: 22px;
+    }
+
+    .logout-modal-actions {
+        flex-direction: column;
+    }
+
+    .logout-cancel-btn,
+    .logout-confirm-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+
+        left: -290px;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        background:transparent;
+        border: 0;
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 900;
+    }
+
+    .app {
+        margin-left: 0;
+        padding: 70px 15px 20px;
+    }
+}
